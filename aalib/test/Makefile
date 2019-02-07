@@ -5,7 +5,7 @@
 #
 EE_LIB_DIR = ../lib/
 
-EE_INCS += -I../include -I$(PS2SDK)/ee/include
+EE_INCS += -I../include -I$(PS2SDKUJ)/ee/include
 EE_BIN = aafire.elf
 EE_OBJS = aafire.o
 EE_LDFLAGS = -L$(EE_LIB_DIR)
@@ -16,5 +16,5 @@ all: $(EE_BIN)
 clean:
 	rm -f $(EE_BIN) $(EE_OBJS)
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../../Makefile.eeglobal

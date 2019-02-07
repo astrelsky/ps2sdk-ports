@@ -19,12 +19,12 @@ To install: run SetupPS2.sh, which will automatically do whatever that was writt
   make setup ps2; make
 
   ## Install the library.
-  mkdir -p $PS2SDK/ports/lib
-  cp objs/libfreetype.a $PS2SDK/ports/lib
+  mkdir -p $PS2SDKUJ/ports/lib
+  cp objs/libfreetype.a $PS2SDKUJ/ports/lib
 
   ## Install the include files.
-  mkdir -p $PS2SDK/ports/include
-  cp -Rv include/* $PS2SDK/ports/include
+  mkdir -p $PS2SDKUJ/ports/include
+  cp -Rv include/* $PS2SDKUJ/ports/include
 
  -------
  Credits

@@ -15,7 +15,7 @@ clean:
 	$(MAKE) -C src clean
 
 install:
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include/stlport
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f $(EE_LIB_DIR)*.a $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -r stlport/* $(DESTDIR)$(PS2SDK)/ports/include/stlport
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/include/stlport
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f $(EE_LIB_DIR)*.a $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -r stlport/* $(DESTDIR)$(PS2SDKUJ)/ports/include/stlport

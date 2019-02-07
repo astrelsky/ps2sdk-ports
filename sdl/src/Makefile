@@ -49,7 +49,7 @@ endif
 
 EE_INCS += -I../include
 EE_INCS += -Ivideo -Ithread -Ievents -Itimer -Iaudio -Ijoystick -Icdrom
-EE_INCS += -I$(PS2SDK)/ports/include -I$(GSKIT)/include
+EE_INCS += -I$(PS2SDKUJ)/ports/include -I$(GSKIT)/include
 EE_LIBS =
 
 ifneq ("$(wildcard $(GSKIT)/include/gsKit.h)","")
@@ -122,50 +122,50 @@ SDLMAIN_OBJS = main/arch.o main/ps2sdk/sdl_main.o
 # inline
 
 ifeq ($(USE_FREESD), 1)
-audio/ps2sdk/freesd_irx.c: $(PS2SDK)/iop/irx/freesd.irx
-	$(PS2SDK)/bin/bin2c $< $@ freesd_irx
+audio/ps2sdk/freesd_irx.c: $(PS2SDKUJ)/iop/irx/freesd.irx
+	$(PS2SDKUJ)/bin/bin2c $< $@ freesd_irx
 endif
 
 ifeq ($(USE_FREESIO2), 1)
-joystick/ps2sdk/sio2man_irx.c: $(PS2SDK)/iop/irx/freesio2.irx
-	$(PS2SDK)/bin/bin2c $< $@ sio2man_irx
+joystick/ps2sdk/sio2man_irx.c: $(PS2SDKUJ)/iop/irx/freesio2.irx
+	$(PS2SDKUJ)/bin/bin2c $< $@ sio2man_irx
 
-joystick/ps2sdk/padman_irx.c: $(PS2SDK)/iop/irx/freepad.irx
-	$(PS2SDK)/bin/bin2c $< $@ padman_irx
+joystick/ps2sdk/padman_irx.c: $(PS2SDKUJ)/iop/irx/freepad.irx
+	$(PS2SDKUJ)/bin/bin2c $< $@ padman_irx
 
-joystick/ps2sdk/mtapman_irx.c: $(PS2SDK)/iop/irx/freemtap.irx
-	$(PS2SDK)/bin/bin2c $< $@ mtapman_irx
+joystick/ps2sdk/mtapman_irx.c: $(PS2SDKUJ)/iop/irx/freemtap.irx
+	$(PS2SDKUJ)/bin/bin2c $< $@ mtapman_irx
 endif
 
-audio/ps2sdk/audsrv_irx.c: $(PS2SDK)/iop/irx/audsrv.irx
-	$(PS2SDK)/bin/bin2c $< $@ audsrv_irx
+audio/ps2sdk/audsrv_irx.c: $(PS2SDKUJ)/iop/irx/audsrv.irx
+	$(PS2SDKUJ)/bin/bin2c $< $@ audsrv_irx
 
-video/ps2sdk/ps2kbd_irx.c: $(PS2SDK)/iop/irx/ps2kbd.irx
-	$(PS2SDK)/bin/bin2c $< $@ ps2kbd_irx
+video/ps2sdk/ps2kbd_irx.c: $(PS2SDKUJ)/iop/irx/ps2kbd.irx
+	$(PS2SDKUJ)/bin/bin2c $< $@ ps2kbd_irx
 
-video/ps2sdk/ps2mouse_irx.c: $(PS2SDK)/iop/irx/ps2mouse.irx
-	$(PS2SDK)/bin/bin2c $< $@ ps2mouse_irx
+video/ps2sdk/ps2mouse_irx.c: $(PS2SDKUJ)/iop/irx/ps2mouse.irx
+	$(PS2SDKUJ)/bin/bin2c $< $@ ps2mouse_irx
 
-video/ps2sdk/ps2usbd_irx.c: $(PS2SDK)/iop/irx/usbd.irx
-	$(PS2SDK)/bin/bin2c $< $@ ps2usbd_irx
+video/ps2sdk/ps2usbd_irx.c: $(PS2SDKUJ)/iop/irx/usbd.irx
+	$(PS2SDKUJ)/bin/bin2c $< $@ ps2usbd_irx
 
 
 ifeq ($(ENABLE_MTAP), 1)
 EMBEDDED = \
-	$(PS2SDK)/ee/lib/libpadx.a           \
-	$(PS2SDK)/ee/lib/libmtap.a
+	$(PS2SDKUJ)/ee/lib/libpadx.a           \
+	$(PS2SDKUJ)/ee/lib/libmtap.a
 else
 EMBEDDED = \
-	$(PS2SDK)/ee/lib/libpad.a
+	$(PS2SDKUJ)/ee/lib/libpad.a
 endif
 
 EMBEDDED += \
-	$(PS2SDK)/ee/lib/libcdvd.a	\
-	$(PS2SDK)/ee/lib/libpatches.a       \
-	$(PS2SDK)/ee/lib/libkbd.a       \
-	$(PS2SDK)/ee/lib/libmouse.a     \
-	$(PS2SDK)/ee/lib/libaudsrv.a    \
-	$(PS2SDK)/ports/lib/libjpeg.a    \
+	$(PS2SDKUJ)/ee/lib/libcdvd.a	\
+	$(PS2SDKUJ)/ee/lib/libpatches.a       \
+	$(PS2SDKUJ)/ee/lib/libkbd.a       \
+	$(PS2SDKUJ)/ee/lib/libmouse.a     \
+	$(PS2SDKUJ)/ee/lib/libaudsrv.a    \
+	$(PS2SDKUJ)/ports/lib/libjpeg.a    \
 	$(GSKIT)/lib/libdmakit.a	\
 	$(GSKIT)/lib/libgskit.a
 
@@ -183,10 +183,10 @@ $(LIB_SDLMAIN): $(SDLMAIN_OBJS)
 
 ifneq ("$(wildcard $(GSKIT)/include/gsKit.h)","")
 install: all
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include/SDL
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f $(LIB_SDL) $(LIB_SDLMAIN) $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f ../include/*.h $(DESTDIR)$(PS2SDK)/ports/include/SDL
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/include/SDL
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f $(LIB_SDL) $(LIB_SDLMAIN) $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f ../include/*.h $(DESTDIR)$(PS2SDKUJ)/ports/include/SDL
 else
 install: all
 endif
@@ -194,5 +194,5 @@ endif
 clean:
 	rm -f $(LIB_SDL) $(LIB_SDLMAIN) $(SDL_OBJS) $(SDLMAIN_OBJS) $(SDL_TMP)
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../../Makefile.eeglobal

@@ -9,5 +9,5 @@ all: $(EE_BIN)
 clean:
 	rm -f $(EE_BIN) $(EE_OBJS)
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../../Makefile.eeglobal

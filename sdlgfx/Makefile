@@ -12,7 +12,7 @@ EE_LIB_DIR = lib/
 
 EE_LIB = $(EE_LIB_DIR)libSDL_gfx.a
 
-EE_INCS      += -I./include -I$(PS2SDK)/ports/include -I$(PS2SDK)/ports/include/SDL
+EE_INCS      += -I./include -I$(PS2SDKUJ)/ports/include -I$(PS2SDKUJ)/ports/include/SDL
 EE_LIBS      += -lSDL
 
 EE_OBJS =	SDL_framerate.o	\
@@ -36,14 +36,14 @@ sample: all
 	$(MAKE) -C Test all
 
 install: all
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include/SDL
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f $(EE_LIB) $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f *.h $(DESTDIR)$(PS2SDK)/ports/include/SDL
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/include/SDL
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f $(EE_LIB) $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f *.h $(DESTDIR)$(PS2SDKUJ)/ports/include/SDL
 
 clean:
 	rm -f -r $(EE_OBJS_DIR) $(EE_LIB_DIR)
 	$(MAKE) -C Test clean
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../Makefile.eeglobal

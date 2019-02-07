@@ -2,7 +2,7 @@ EE_LIB_DIR = lib/
 
 EE_LIB = $(EE_LIB_DIR)libexpat.a
 
-EE_INCS = -I$(EE_LIB_DIR) -I$(PS2SDK)/common/include -I$(PS2SDK)/ee/include
+EE_INCS = -I$(EE_LIB_DIR) -I$(PS2SDKUJ)/common/include -I$(PS2SDKUJ)/ee/include
 
 EE_CFLAGS = -DHAVE_EXPAT_CONFIG_H
 
@@ -12,15 +12,15 @@ EE_OBJS := $(EE_OBJS:%=$(EE_LIB_DIR)%)
 all: $(EE_LIB)
 
 install: all
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f $(EE_LIB) $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f $(EE_LIB_DIR)expat*.h $(DESTDIR)$(PS2SDK)/ports/include
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/include
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f $(EE_LIB) $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f $(EE_LIB_DIR)expat*.h $(DESTDIR)$(PS2SDKUJ)/ports/include
 
 clean:
 	rm -f $(EE_OBJS) $(EE_LIB)
 
 sample:
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../Makefile.eeglobal

@@ -18,12 +18,12 @@ $(LIB_ICE): $(ICE_OBJS)
 	$(EE_AR) cru $(LIB_ICE) $(ICE_OBJS)
 
 install: all
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include/ode
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f $(LIB_ICE) $(DESTDIR)$(PS2SDK)/ports/lib
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/include/ode
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f $(LIB_ICE) $(DESTDIR)$(PS2SDKUJ)/ports/lib
 
 clean:
 	rm -f $(LIB_ICE) $(LIB_ICEMAIN) $(ICE_OBJS)
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../../../Makefile.eeglobal

@@ -12,9 +12,9 @@
 # ----------------------------------------------------------------------
 
 
-EE_INCS   += -I$(PS2SDK)/ports/include/
+EE_INCS   += -I$(PS2SDKUJ)/ports/include/
 
-EE_LIBS   += -L$(PS2SDK)/ports/lib -lromfs
+EE_LIBS   += -L$(PS2SDKUJ)/ports/lib -lromfs
 
 # ROMFS substitutions... :)
 EE_CFLAGS += -Dfopen=ropen
@@ -27,7 +27,7 @@ EE_CFLAGS += -Dfgetc=rgetc
 EE_CFLAGS += -Dfgets=rgets
 EE_CFLAGS += -Dmmap=rmmap
 
-GENROMFS_PATH = $(PS2SDK)/bin
+GENROMFS_PATH = $(PS2SDKUJ)/bin
 GENROMFS = $(GENROMFS_PATH)/genromfs
 
 #
@@ -41,4 +41,4 @@ romdisk.img:
 	@$(GENROMFS) -f $@ -d romdisk
 
 romdisk.c: romdisk.img
-	$(PS2SDK)/bin/bin2c romdisk.img romdisk.c romdisk
+	$(PS2SDKUJ)/bin/bin2c romdisk.img romdisk.c romdisk

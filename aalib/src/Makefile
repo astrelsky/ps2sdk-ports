@@ -55,13 +55,13 @@ $(EE_OBJS_DIR)%.o : %.c
 	$(EE_C_COMPILE) -c $< -o $@
 
 install: all
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include/
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/lib/
-	cp -f ../include/* $(DESTDIR)$(PS2SDK)/ports/include/
-	cp -f $(EE_LIB_DIR)* $(DESTDIR)$(PS2SDK)/ports/lib/
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/include/
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/lib/
+	cp -f ../include/* $(DESTDIR)$(PS2SDKUJ)/ports/include/
+	cp -f $(EE_LIB_DIR)* $(DESTDIR)$(PS2SDKUJ)/ports/lib/
 
 clean:
 	rm -f -r $(EE_OBJS_DIR) $(EE_LIB_DIR)
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../../Makefile.eeglobal

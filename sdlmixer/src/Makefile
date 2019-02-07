@@ -39,20 +39,20 @@ endif
 
 EE_OBJS = $(MIXER_OBJS) $(MIKMOD_OBJS) $(SMPEG_OBJS)
 
-EE_INCS  = -I. -I../include -Imikmod -Ismpeg -I$(PS2SDK)/common/include 
-EE_INCS += -I$(PS2SDK)/ports/include -I$(PS2SDK)/ports/include/SDL
+EE_INCS  = -I. -I../include -Imikmod -Ismpeg -I$(PS2SDKUJ)/common/include 
+EE_INCS += -I$(PS2SDKUJ)/ports/include -I$(PS2SDKUJ)/ports/include/SDL
 EE_LIBS  = 
 
 all: $(EE_LIB)
 
 install: all
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/lib
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include/SDL
-	cp -f $(EE_LIB) $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f ../include/*.h $(DESTDIR)$(PS2SDK)/ports/include/SDL
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/include/SDL
+	cp -f $(EE_LIB) $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f ../include/*.h $(DESTDIR)$(PS2SDKUJ)/ports/include/SDL
 
 clean:
 	rm -f -r $(EE_LIB_DIR) $(EE_OBJS)
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../../Makefile.eeglobal

@@ -14,7 +14,7 @@ TEST_OBJS = $(SOURCE_DIR)test/example.o
 TEST_BIN = example.elf
 TEST_CFLAGS = -I$(SOURCE_DIR)
 TEST_LIBS = $(EE_LIB)
-TEST_LDFLAGS += -L$(PS2SDK)/ee/lib
+TEST_LDFLAGS += -L$(PS2SDKUJ)/ee/lib
 
 all: $(EE_OBJS_DIR) $(EE_LIB_DIR) $(EE_LIB)
 
@@ -32,16 +32,16 @@ $(TEST_BIN) : $(TEST_OBJS)
 	gzip -f -c --best $(TEST_OBJS) > foo.gz
 
 install: all
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f $(EE_LIB) $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f $(SOURCE_DIR)zlib.h $(DESTDIR)$(PS2SDK)/ports/include
-	cp -f $(SOURCE_DIR)zconf.h $(DESTDIR)$(PS2SDK)/ports/include
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/include
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f $(EE_LIB) $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f $(SOURCE_DIR)zlib.h $(DESTDIR)$(PS2SDKUJ)/ports/include
+	cp -f $(SOURCE_DIR)zconf.h $(DESTDIR)$(PS2SDKUJ)/ports/include
 
 sample: all $(TEST_BIN)
 
 clean:
 	rm -f -r $(EE_OBJS_DIR) $(EE_LIB_DIR) $(TEST_OBJS) $(TEST_BIN) foo.gz
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../Makefile.eeglobal

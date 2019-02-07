@@ -39,10 +39,10 @@ clean:
 	$(MAKE) -C test clean
 
 install: all
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/lib
-	cp $(EE_SRC_DIR)lua.h $(EE_SRC_DIR)luaconf.h $(EE_SRC_DIR)lualib.h $(EE_SRC_DIR)lauxlib.h etc/lua.hpp $(DESTDIR)$(PS2SDK)/ports/include
-	cp $(EE_LIB_DIR)*.a $(DESTDIR)$(PS2SDK)/ports/lib
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/include
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp $(EE_SRC_DIR)lua.h $(EE_SRC_DIR)luaconf.h $(EE_SRC_DIR)lualib.h $(EE_SRC_DIR)lauxlib.h etc/lua.hpp $(DESTDIR)$(PS2SDKUJ)/ports/include
+	cp $(EE_LIB_DIR)*.a $(DESTDIR)$(PS2SDKUJ)/ports/lib
 
 
 # DO NOT DELETE
@@ -109,5 +109,5 @@ print.o: print.c ldebug.h lstate.h lua.h luaconf.h lobject.h llimits.h \
 
 # (end of Makefile)
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../Makefile.eeglobal

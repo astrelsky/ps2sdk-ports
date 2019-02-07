@@ -12,7 +12,7 @@
 # indicate that you have read the license and understand and accept it
 # fully.
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../../Makefile.eeglobal
 include $(TOP_DIR)/builds/compiler/ee-gcc.mk
 include $(TOP_DIR)/builds/ps2/ps2-def.mk

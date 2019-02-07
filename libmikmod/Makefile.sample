@@ -1,9 +1,9 @@
 
 EE_BIN     = example.elf
 
-EE_LIBS   += -L$(PS2SDK)/ports/lib -L$(GSKIT)/lib/ 
+EE_LIBS   += -L$(PS2SDKUJ)/ports/lib -L$(GSKIT)/lib/ 
 EE_LIBS   += -lmikmod -lgskit -ldmakit -laudsrv
-EE_INCS   += -I../include -Isrc -I$(PS2SDK)/ports/include -I$(GSKIT)/include
+EE_INCS   += -I../include -Isrc -I$(PS2SDKUJ)/ports/include -I$(GSKIT)/include
 
 
 
@@ -28,5 +28,5 @@ reset:
 	ps2client -h 192.168.0.10 reset
 
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../Makefile.eeglobal

@@ -11,8 +11,8 @@
 EE_BIN = framerate.elf
 EE_OBJS = TestFramerate.o
 
-EE_INCS = -I../../ -I$(PS2SDK)/ports/include/SDL
-EE_LDFLAGS = -L../../lib/ -L$(PS2SDK)/ports/lib -L$(GSKIT)/lib
+EE_INCS = -I../../ -I$(PS2SDKUJ)/ports/include/SDL
+EE_LDFLAGS = -L../../lib/ -L$(PS2SDKUJ)/ports/lib -L$(GSKIT)/lib
 EE_LIBS = -lSDL_gfx -lsdl -lgskit -ldmakit -lm
 
 all: $(EE_BIN)
@@ -20,5 +20,5 @@ all: $(EE_BIN)
 clean:
 	rm -f *.elf *.o *.a
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../../../Makefile.eeglobal

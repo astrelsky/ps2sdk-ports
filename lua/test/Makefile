@@ -6,8 +6,8 @@ EE_BIN = mini_luap.elf
 
 EE_OBJS = mini_luap.o
 
-EE_LIBS   += -L$(PS2SDK)/ports/lib -L../lib -llua -llualib
-EE_INCS   += -I../include -Iinclude -I$(PS2SDK)/ports/include -I../src
+EE_LIBS   += -L$(PS2SDKUJ)/ports/lib -L../lib -llua -llualib
+EE_INCS   += -I../include -Iinclude -I$(PS2SDKUJ)/ports/include -I../src
 
 all: $(EE_BIN)
 
@@ -75,5 +75,5 @@ tests: $(EE_BIN)
 reset:
 	ps2client -h $(PS2_IP) reset
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../../Makefile.eeglobal

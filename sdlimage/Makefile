@@ -8,7 +8,7 @@ EE_LIB_DIR = lib/
 
 LIB_SDLIMAGE 	= $(EE_LIB_DIR)libSDL_image.a
 
-EE_INCS      += -I./include -I$(PS2SDK)/ports/include -I$(PS2SDK)/ports/include/zlib -I$(PS2SDK)/ports/include/SDL
+EE_INCS      += -I./include -I$(PS2SDKUJ)/ports/include -I$(PS2SDKUJ)/ports/include/zlib -I$(PS2SDKUJ)/ports/include/SDL
 EE_LIBS      += -lpng -lz -ljpeg -lSDL
 
 EE_CFLAGS    += -DLOAD_BMP \
@@ -37,10 +37,10 @@ SDLIMAGE_OBJS =	IMG.o			\
 		IMG_xpm.o
 
 EMBEDDED += \
-	$(PS2SDK)/ports/lib/libpng.a \
-	$(PS2SDK)/ports/lib/libjpeg.a \
-	$(PS2SDK)/ports/lib/libtiff.a \
-	$(PS2SDK)/ports/lib/libz.a
+	$(PS2SDKUJ)/ports/lib/libpng.a \
+	$(PS2SDKUJ)/ports/lib/libjpeg.a \
+	$(PS2SDKUJ)/ports/lib/libtiff.a \
+	$(PS2SDKUJ)/ports/lib/libz.a
 
 $(LIB_SDLIMAGE): $(SDLIMAGE_OBJS)
 	# packing with all embedded libraries
@@ -56,15 +56,15 @@ $(LIB_SDLIMAGE): $(SDLIMAGE_OBJS)
 all: $(LIB_SDLIMAGE)
 
 install: all
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include/SDL
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f $(LIB_SDLIMAGE) $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f include/*.h $(DESTDIR)$(PS2SDK)/ports/include/SDL
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/include/SDL
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f $(LIB_SDLIMAGE) $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f include/*.h $(DESTDIR)$(PS2SDKUJ)/ports/include/SDL
 
 clean:
 	rm -f -r $(SDLIMAGE_OBJS) $(EE_LIB_DIR)
 
 sample:
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../Makefile.eeglobal

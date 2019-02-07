@@ -13,7 +13,7 @@ EE_LIB_DIR = lib/
 EE_LIBMIKMOD = $(EE_LIB_DIR)libmikmod.a
 
 EE_LDFLAGS   += -L$(EE_LIB_DIR)
-EE_INCS      += -I./include -I$(PS2SDK)/ports/include
+EE_INCS      += -I./include -I$(PS2SDKUJ)/ports/include
 EE_CFLAGS    += -DDRV_PS2 -DHAVE_FCNTL_H -DHAVE_MALLOC_H -DHAVE_UNISTD_H
 
 ifeq ($(USE_FREESD), 1)
@@ -57,7 +57,7 @@ $(EE_LIB_DIR):
 	mkdir -p $(EE_LIB_DIR)
 
 EMBEDDED += \
-        $(PS2SDK)/ee/lib/libaudsrv.a
+        $(PS2SDKUJ)/ee/lib/libaudsrv.a
 
 $(EE_LIBMIKMOD): $(EE_OBJS)
 	# packing with all embedded libraries
@@ -69,10 +69,10 @@ $(EE_LIBMIKMOD): $(EE_OBJS)
 	rm -rf tmp
 
 install: all
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/lib
-	cp include/mikmod_build.h $(DESTDIR)$(PS2SDK)/ports/include/mikmod.h
-	cp $(EE_LIBMIKMOD) $(DESTDIR)$(PS2SDK)/ports/lib
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/include
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp include/mikmod_build.h $(DESTDIR)$(PS2SDKUJ)/ports/include/mikmod.h
+	cp $(EE_LIBMIKMOD) $(DESTDIR)$(PS2SDKUJ)/ports/lib
 
 clean:
 	rm -f -r $(EE_OBJS) $(EE_LIB_DIR) drivers/freesd_irx.c drivers/audsrv_irx.c
@@ -81,11 +81,11 @@ clean:
 # inline
 
 ifeq ($(USE_FREESD), 1)
-drivers/freesd_irx.c: $(PS2SDK)/iop/irx/freesd.irx
-	$(PS2SDK)/bin/bin2c $< $@ freesd_irx
+drivers/freesd_irx.c: $(PS2SDKUJ)/iop/irx/freesd.irx
+	$(PS2SDKUJ)/bin/bin2c $< $@ freesd_irx
 endif
-drivers/audsrv_irx.c: $(PS2SDK)/iop/irx/audsrv.irx
-	$(PS2SDK)/bin/bin2c $< $@ audsrv_irx
+drivers/audsrv_irx.c: $(PS2SDKUJ)/iop/irx/audsrv.irx
+	$(PS2SDKUJ)/bin/bin2c $< $@ audsrv_irx
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../Makefile.eeglobal

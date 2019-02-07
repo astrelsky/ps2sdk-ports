@@ -26,10 +26,10 @@ sample: all
 	$(MAKE) -C test
 
 install: all
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include/ucl
-	mkdir -p $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f $(EE_LIB) $(DESTDIR)$(PS2SDK)/ports/lib
-	cp -f ucl/*.h $(DESTDIR)$(PS2SDK)/ports/include/ucl
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/include/ucl
+	mkdir -p $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f $(EE_LIB) $(DESTDIR)$(PS2SDKUJ)/ports/lib
+	cp -f ucl/*.h $(DESTDIR)$(PS2SDKUJ)/ports/include/ucl
 
-include $(PS2SDK)/Defs.make
+include $(PS2SDKUJ)/Defs.make
 include ../Makefile.eeglobal
